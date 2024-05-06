@@ -2,20 +2,24 @@
     {
       "id": 1,
       "position": "Software Engineer",
-      "company": "ABC Technologies",
-      "duration": "Jan 2020 - Present",
-      "description": ["Used the Rawg ApI to fetch games and display thwm",
-      "Used Framer motion in the Frontend to create animations",
-      "Used the"]
+      "company": "Freelance",
+      "duration": "Jan 2021 - Dec 2022",
+      "description": [
+          "Aided in locating flaws and fixing already-in-use services which improved efficiency by 30%",
+          "Work on multiple applications such as lending platform and referral system which helped in the increase of customers.",
+          "Worked on handling on-chain transaction verification which helped in securing the platforms."
+      ]
     },
     {
       "id": 2,
-      "position": "Intern",
-      "company": "XYZ Corporation",
-      "duration": "Jun 2019 - Aug 2019",
-      "description": ["Used the Rawg ApI to fetch games and display thwm",
-      "Used Framer motion in the Frontend to create animations",
-      "Used the"]
+      "position": "Software Developer",
+      "company": "Personal Projects",
+      "duration": "2023-present",
+      "description": [
+        "Learnt new  and various programming technologies",
+        "Worked on varous personal projects which are present in my Github",
+        "Gained alot of experience"
+      ]
     }
   ]
   

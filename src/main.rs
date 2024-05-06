@@ -278,7 +278,7 @@ fn render_home<'a>() -> Paragraph<'a> {
             Style::default().fg(Color::LightBlue),
         )]),
         Spans::from(vec![Span::raw("")]),
-        Spans::from(vec![Span::raw("Press 'p' to access projects,  and 'e' to view experience the currently selected pet.")]),
+        Spans::from(vec![Span::raw("Press 'p' to view Projects, 'e' to view Experience,'c' to view Contacts  press 'q' to quit the terminal and 'h' to go back home.")]),
     ])
     .alignment(Alignment::Center)
     .block(
