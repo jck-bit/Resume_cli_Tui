@@ -1,0 +1,21 @@
+[
+    {
+      "id": 1,
+      "position": "Software Engineer",
+      "company": "ABC Technologies",
+      "duration": "Jan 2020 - Present",
+      "description": ["Used the Rawg ApI to fetch games and display thwm",
+      "Used Framer motion in the Frontend to create animations",
+      "Used the"]
+    },
+    {
+      "id": 2,
+      "position": "Intern",
+      "company": "XYZ Corporation",
+      "duration": "Jun 2019 - Aug 2019",
+      "description": ["Used the Rawg ApI to fetch games and display thwm",
+      "Used Framer motion in the Frontend to create animations",
+      "Used the"]
+    }
+  ]
+  
