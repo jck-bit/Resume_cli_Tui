@@ -48,6 +48,7 @@ This project aims to provide a user-friendly interface in the terminal projects 
 
 - Press 'p' to view Projects, 'e' to view Experience,'c' to view Contacts and 'h' to go back home.
 - Use  'up' and 'down' arrow keys to navigate through the list of projects and experiences.
+- Use the 'left' and 'right' arrow keys to navigate horizontally
 - Press Esc or q to exit the application.
 
 ## Dependencies

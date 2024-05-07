@@ -212,7 +212,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
         match rx.recv()? {
             Event::Input(event) => match event.code {
-                KeyCode::Char('q') => {
+                KeyCode::Char('q') | KeyCode::Esc => {
                     disable_raw_mode()?;
                     terminal.show_cursor()?;
                     break;
@@ -220,12 +220,32 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                 KeyCode::Char('h') => active_menu_item = MenuItem::Home,
                 KeyCode::Char('p') => active_menu_item = MenuItem::Projects,
                 KeyCode::Char('e') => active_menu_item = MenuItem::Experience,
-                KeyCode::Char('c') => active_menu_item = MenuItem::Contact,  
+                KeyCode::Char('c') => active_menu_item = MenuItem::Contact, 
+
+                KeyCode::Left => {
+                    
+                    active_menu_item = match active_menu_item {
+                        MenuItem::Home => MenuItem::Contact,
+                        MenuItem::Projects => MenuItem::Home,
+                        MenuItem::Experience => MenuItem::Projects,
+                        MenuItem::Contact => MenuItem::Experience,
+                    };
+                }
+
+                KeyCode::Right => {
+                    
+                    active_menu_item = match active_menu_item {
+                        MenuItem::Home => MenuItem::Projects,
+                        MenuItem::Projects => MenuItem::Experience,
+                        MenuItem::Experience => MenuItem::Contact,
+                        MenuItem::Contact => MenuItem::Home,
+                    };
+                }
                
                 KeyCode::Down => {
                     if let Some(selected) = project_list_state.selected() {
-                        let amount_pets = read_db().expect("can fetch pet list").len();
-                        if selected >= amount_pets - 1 {
+                        let amount_projects = read_db().expect("can fetch project list").len();
+                        if selected >= amount_projects - 1 {
                             project_list_state.select(Some(0));
                         } else {
                             project_list_state.select(Some(selected + 1));
@@ -242,11 +262,11 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                 }
                 KeyCode::Up => {
                     if let Some(selected) = project_list_state.selected() {
-                        let amount_pets = read_db().expect("can fetch pet list").len();
+                        let amount_projects = read_db().expect("can fetch pet list").len();
                         if selected > 0 {
                             project_list_state.select(Some(selected - 1));
                         } else {
-                            project_list_state.select(Some(amount_pets - 1));
+                            project_list_state.select(Some(amount_projects - 1));
                         }
                     }
                     if let Some(selected) = experience_list_state.selected() {
@@ -272,16 +292,15 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 fn render_home<'a>() -> Paragraph<'a> {
     let home = Paragraph::new(vec![
         Spans::from(vec![Span::raw("")]),
-        Spans::from(vec![Span::raw("Welcome")]),
+        Spans::from(vec![Span::raw("Hello, My name is Jack Kinyanjui and Welcome to my")]),
         Spans::from(vec![Span::raw("")]),
-        Spans::from(vec![Span::raw("to my")]),
         Spans::from(vec![Span::raw("")]),
         Spans::from(vec![Span::styled(
-            "Resume -CLI",
+            "Resume on the CLI",
             Style::default().fg(Color::LightBlue),
         )]),
         Spans::from(vec![Span::raw("")]),
-        Spans::from(vec![Span::raw("Press 'p' to view Projects, 'e' to view Experience,'c' to view Contacts  press 'q' to quit the terminal and 'h' to go back home.")]),
+        Spans::from(vec![Span::raw("Press 'p' to view Projects, 'e' to view Experience,'c' to view Contacts press 'q' to quit the terminal and 'h' to go back home.")]),
     ])
     .alignment(Alignment::Center)
     .block(
