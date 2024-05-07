@@ -1,6 +1,6 @@
 # Rust Resume TUI Project
 
-🚀 This is a Rust project that utilizes the TUI (Text User Interface) library to display projects and experiences.
+🚀 This is a Rust project that utilizes the tui-rs  Rust library to display projects and experiences on the terminal
 
 ## Demo Gif
 
