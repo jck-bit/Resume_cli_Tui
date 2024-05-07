@@ -5,7 +5,7 @@ use tui::{layout::Alignment,style::{Color, Style}, text::{Span, Spans},
 
 
 pub fn render_contact() -> Paragraph<'static> {
-    // Create styled spans for each piece of contact information
+
     let email_title = Span::styled(
         "Email: ",
         Style::default().fg(Color::Yellow), 
@@ -51,7 +51,7 @@ pub fn render_contact() -> Paragraph<'static> {
         Spans::from(vec![linkedin_title, linkedin_address]), 
         Spans::from(vec![phone_title, phone_number]),
         Spans::from(vec![twitter_title, twitter_handle]), 
-        
+
     ])
     .alignment(Alignment::Center)
     .block(
