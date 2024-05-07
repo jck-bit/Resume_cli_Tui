@@ -1,9 +1,10 @@
 mod experience;
 mod projects;
+mod contact;
 
-use chrono::{DateTime, Utc};
 use experience:: render_experience;
 use projects:: render_projects;
+use contact::render_contact;
 
 use crossterm::{
     event::{self, Event as CEvent, KeyCode},
@@ -44,12 +45,14 @@ enum Event<I> {
 }
 
 #[derive(Serialize, Deserialize, Clone)]
+
 struct Project {
     id: usize,
     name: String,
-    category: String,
-    age: usize,
-    created_at: DateTime<Utc>,
+    platform: String,
+    stack: String,
+    year: String,
+    description: Vec<String>
 }
 
 #[derive(Serialize, Deserialize, Clone)]
@@ -289,25 +292,6 @@ fn render_home<'a>() -> Paragraph<'a> {
             .border_type(BorderType::Plain),
     );
     home
-}
-
-fn render_contact() -> Paragraph<'static> {
-    let contact = Paragraph::new(vec![
-        Spans::from(vec![Span::raw("")]),
-        Spans::from(vec![Span::raw("Contact Information")]),
-        Spans::from(vec![Span::raw("")]),
-        // Add your contact information here
-    ])
-    .alignment(Alignment::Center)
-    .block(
-        Block::default()
-            .borders(Borders::ALL)
-            .style(Style::default().fg(Color::White))
-            .title("Contact")
-            .border_type(BorderType::Plain),
-    );
-
-    contact
 }
 
 
