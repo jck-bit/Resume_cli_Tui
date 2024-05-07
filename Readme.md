@@ -32,13 +32,13 @@ This project aims to provide a user-friendly interface in the terminal projects 
     cd Resume_cli_Tui
     ```
 
-3. Build and run the project:
+3. Build the project:
 
     ```bash
     cargo build
     ```
 
-4. and run the project:
+4. Run the project:
 
     ```bash
     cargo run
